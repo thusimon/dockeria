@@ -1,0 +1,9 @@
+version: '3'
+services:
+  redis-server:
+    image: thusimon/redis-server:latest
+  node-server:
+    build: ../node-server
+    image: thusimon/node-server:16
+    ports:
+      - '8080:8080'
