@@ -1,0 +1,12 @@
+#base image
+FROM node:16-alpine
+
+WORKDIR /usr/app
+
+# dependencies
+COPY ./app-workflow/package.json ./
+RUN npm install
+COPY ./app-workflow ./
+
+# start command
+CMD ["npm", "run", "start"]
