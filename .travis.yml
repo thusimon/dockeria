@@ -18,7 +18,7 @@ deploy:
   env: "Dockeriaappworkflow-env"
   bucket_name: "elasticbeanstalk-us-east-1-683418073496"
   bucket_path: "dockeria-app-workflow"
-  on:
-    branch: main
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
+  on:
+    branch: main
