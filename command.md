@@ -15,3 +15,7 @@
 * docker build .
   * docker build -t \<docker-id\>\\<project-name\>:\<version-tag\> .
   * docker build -f \<docker-file-path\> .
+* docker rm \<container-id\>
+  * docker imgage rm \<image-id\>
+  * docker system prune -a
+  * docker volume rm $(docker volume ls -q -f dangling=true)

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default () => {
+const Fib = () => {
   const [seenIndexs, setSeenIndexs] = useState([]);
   const [values, setValues] = useState<{[key: string]: string}>({});
   const [value, setValue] = useState('');
@@ -31,7 +31,7 @@ export default () => {
     }}>
       <label>Input index:</label>
       <input value={value} onChange={evt => setValue(evt.target.value)}></input>
-      <input type='submit'>Submit</input>
+      <button type='submit'>Submit</button>
     </form>
 
     <h3>The index have been calculated</h3>
@@ -42,3 +42,5 @@ export default () => {
     </div>
   </div>
 }
+
+export default Fib;
