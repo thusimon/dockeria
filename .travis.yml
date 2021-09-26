@@ -11,6 +11,13 @@ before_install:
 script:
   - docker run -e CI=true thusimon/dockeria-app-workflow:latest npm run test
 
+after_success:
+  - docker build -t thusimon/dockeria-app-workflow-prod:latest ./app-workflow
+  # login to docker CLI
+  - echo $DOCKER_PWD | docker login -u $DOCKER_ID --password-stdin
+  # upload prod images to docker hub
+  - docker push thusimon/dockeria-app-workflow-prod:latest
+
 deploy:
   provider: elasticbeanstalk
   region: "us-east-1"

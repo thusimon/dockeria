@@ -11,10 +11,10 @@ app.use(bodyParser.json);
 
 const pgClient = new Pool({
   user: Keys.pgUser,
-  password: Keys.pgPass,
-  host: Keys.pgHOST,
-  port: Number(Keys.pgPORT),
-  database: Keys.pgDB
+  password: Keys.pgPassword,
+  host: Keys.pgHost,
+  port: Number(Keys.pgPort),
+  database: Keys.pgDatabase
 });
 
 pgClient.on("connect", (client) => {

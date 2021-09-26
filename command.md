@@ -19,3 +19,4 @@
   * docker imgage rm \<image-id\>
   * docker system prune -a
   * docker volume rm $(docker volume ls -q -f dangling=true)
+  * docker rmi $(docker images -f "dangling=true" -q)
