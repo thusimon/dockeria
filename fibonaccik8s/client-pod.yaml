@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-pod #kind and metadata.name is the unique identifier for kubectl to CRUD a pod in a cluster
+  labels:
+    component: web #both key and values are custom, the port config should have the same in selectors
+spec:
+  containers:
+    - name: client
+      image: thusimon/fibo-client
+      ports:
+        - containerPort: 3000

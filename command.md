@@ -20,3 +20,11 @@
   * docker system prune -a
   * docker volume rm $(docker volume ls -q -f dangling=true)
   * docker rmi $(docker images -f "dangling=true" -q)
+* kubectl apply -f \<config-file-path-name\>
+* kubectl delete -f \<config-file-path-name\>
+* kubectl get pods
+  * kubectl get pods -o wide
+* kubectl get services
+* kubectl get deployments
+* kubectl describe \<object-type\> \<object-name\>
+* kubectl set image \<object-type\>/\<object-name\> \<container-name\>=\<new-image\>
