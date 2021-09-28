@@ -21,10 +21,18 @@
   * docker volume rm $(docker volume ls -q -f dangling=true)
   * docker rmi $(docker images -f "dangling=true" -q)
 * kubectl apply -f \<config-file-path-name\>
+  * kubectl apply -f \<config-files-directory\>
 * kubectl delete -f \<config-file-path-name\>
-* kubectl get pods
+  * kubectl delete \<object-type\> \<object-name\>
+* kubectl get \<object-type\>
+  * kubectl get pods
   * kubectl get pods -o wide
-* kubectl get services
-* kubectl get deployments
+  * kubectl get services
+  * kubectl get deployments
+  * kubectl get storageclass
+  * kubectl get pvc
+  * kubectl get pv
+  * kubectl get secrets
 * kubectl describe \<object-type\> \<object-name\>
 * kubectl set image \<object-type\>/\<object-name\> \<container-name\>=\<new-image\>
+* kubectl create secret \<secret-type\> \<secret-name\> --from-literal \<key\>=\<value\>

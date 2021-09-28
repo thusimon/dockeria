@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: postgres
+  template:
+    metadata:
+      labels:
+        component: postgres
+    spec:
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: postgres-persistent-volume-claim #this need to match the volume claim name
+      containers:
+        - name: postgres
+          image: postgres #using public image in docker hub
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: postgres-storage # this need to match spec volumes name
+              mountPath: /var/lib/postgresql/data # this is the default directory of linux postgres data in container
+              subPath: postgres # this is the directory name will be created in the persistent storage
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: fiboSecrets
+                  key: pgpwd
